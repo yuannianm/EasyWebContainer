@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 
 class  ServletListener  {
     Socket client;
+    static ExecutorService executorService= Executors.newFixedThreadPool(20);  //静态线程池,防止多次创建爆内存
      public ServletListener (ServerSocket server){
          Runnable getHttp=()->{
              try{
@@ -33,7 +34,7 @@ class  ServletListener  {
                  e.printStackTrace();
              }
          };
-         ExecutorService executorService= Executors.newFixedThreadPool(20);
+
          while (true) {
              try {
                  client=server.accept();
