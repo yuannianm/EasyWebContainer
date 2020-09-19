@@ -28,6 +28,7 @@ public class MyServlet extends HttpServlet {
               cname=resultSet.getString("cname");
             }
             System.out.println(cname);
+            stat.close();
             connection.close();
             System.out.println("connect break!");
             String header = "HTTP/1.1 200 OK!Yuan\r\n";
